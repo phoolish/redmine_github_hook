@@ -1,7 +1,9 @@
 require 'dispatcher'
 require 'redmine'
-#require File.dirname(__FILE__) + '/lib/repository_controller_patch.rb'
-require File.dirname(__FILE__) + '/lib/shell.rb'
+
+require File.dirname(__FILE__) + '/lib/repository_patch.rb'
+require File.dirname(__FILE__) + '/lib/github_repositories_patch.rb'
+require File.dirname(__FILE__) + '/lib/git.rb'
 
 Redmine::Plugin.register :redmine_github_hook do
   name 'Redmine Github Hook plugin'
@@ -11,7 +13,10 @@ Redmine::Plugin.register :redmine_github_hook do
 
     settings(:default => {
              :enabled  => false,
-             :git_dir  => ''
+             :git_dir  => '',
+             :github_id => '',
+             :github_secret => '',
+             :github_token => ''
              },
              :partial => 'settings/github_hook_setting')
 

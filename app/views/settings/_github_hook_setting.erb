@@ -1,6 +1,10 @@
   <%
     git_dir = Setting.plugin_redmine_github_hook[:git_dir]
     git_dir = '/git_repositories' if git_dir.blank?
+    
+    github_id = Setting.plugin_redmine_github_hook[:github_id]
+    github_secret = Setting.plugin_redmine_github_hook[:github_secret]
+    registered_github = true unless github_id.blank? and github_secret.blank?
   %>
 
 <p>
@@ -13,3 +17,16 @@
   <%= text_field_tag("settings[git_dir]", git_dir, :size=>26) %>
 </p>
 
+<p>
+  <%= content_tag(:label, l(:lablel_github)) %>
+  <% unless registered_github %>
+  <%= l(:github_registration) +" "+ link_to(l(:github_register), "http://github.com/account/applications/new") %>
+  <% end %>
+  <%= content_tag(:label, l(:label_github_id) + ':') %>
+  <%= text_field_tag("settings[github_id]", github_id, :size=>30) %>
+  <%= content_tag(:label, l(:label_github_secret) + ':') %>
+  <%= text_field_tag("settings[github_secret]", github_secret, :size=>30) %>
+  <% if registered_github%>
+  <%= l(:github_authorize_instructions) +" "+ link_to(l(:github_authorize), { :controller => 'github', :action => 'register' }) %>
+  <% end %>
+</p>

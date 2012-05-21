@@ -5,3 +5,25 @@ en:
   label_enabled_off: "Off"
 
   label_git_dir: 'Git Local Repository Folder'
+  label_github: 'GitHub Integration'
+  label_github_id: 'Client ID'
+  label_github_secret: 'Secret'
+  
+  github_registration: "Please register your applcation with GitHub."
+  github_register: "Register"
+  github_authorize_instructions: "Please authorize this application to access your GitHub repository information."
+  github_authorize: "Authorize"
+  github_authorize_success: "Authorization Successful.  You can now return to the {{link}}."
+  github_authorize_success_link: "plugin settings"
+  
+  github_instructions: "You can use the form below to create a github repository."
+  label_github_url: "GitHub Project URL"
+  label_github_user: "Username"
+  label_github_repo: "Repository Name"
+  label_github_org: "Organization"
+  github_org_explian: "Is the username above an organization?"
+  label_github_public: "Public"
+  github_pulbic_explain: "If you decide not to make your repository public, your github account must have a private repository slot available."
+  label_github_issues: "Issues"
+  label_github_wiki: "Wiki"
+  label_github_downloads: "Downloads"

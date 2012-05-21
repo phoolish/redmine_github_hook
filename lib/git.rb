@@ -1,5 +1,6 @@
+require File.dirname(__FILE__) + 'shell.rb'
+
 class Git
-  
   # Mirror remote repository.
   def mirror_repsitory(url, repository)
     exec(git_command("clone --mirror #{url}", repository))

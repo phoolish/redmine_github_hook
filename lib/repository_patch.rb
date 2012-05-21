@@ -21,7 +21,7 @@ module RepositoryPatch
   module InstanceMethods
     # Get the remote url from the repoisotory.
     def remote_url
-      if Setting.plugin_redmine_github_hook[:enabled] and self.type == 'Git'
+      if Setting.plugin_redmine_github_hook[:enabled] and self.type == 'Git' and !self.nil?
         result = Git.new.get_remote_url(self)
         if result and result.is_a?(Array) and result.length == 2
           remote_name = result[0].split("\t")[0].strip

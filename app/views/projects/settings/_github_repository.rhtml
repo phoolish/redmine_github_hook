@@ -1,0 +1,25 @@
+<% remote_form_for :repository, @repository,
+                   :url => { :controller => 'github', :action => 'edit' }
+					%>
+
+<% if @repository.github_project %>
+<%= content_tag(:label, l(:label_github_url) +":") %><%= @repository.remote_url %>
+<% else %>
+<div class="github">
+  <p><%= content_tag(:span, l(:github_instructions))  %></p>
+  <p>
+<%= content_tag(:label, l(:label_github_user) +":") %> <%= text_field_tag("user", "", :size=>10) %>
+<%= content_tag(:label, l(:label_github_repo) +":") %> <%= text_field_tag("repo", "", :size=>10) %>
+<%= content_tag(:label, l(:label_github_org) +":") %> <%= check_box_tag("org", false) %>
+<em><%= content_tag(:span, l(:github_org_explain))  %></em>
+<%= content_tag(:label, l(:label_github_public) +":") %> <%= check_box_tag("public", false) %>
+<em><%= content_tag(:span, l(:github_public_require))  %></em>
+<%= content_tag(:label, l(:label_github_issues) +":") %> <%= check_box_tag("issues", false) %>
+<%= content_tag(:label, l(:label_github_wiki) +":") %> <%= check_box_tag("wiki", false) %>
+<%= content_tag(:label, l(:label_github_downloads) +":") %> <%= check_box_tag("downloads", false) %>
+  </p>
+</div>
+
+<%= submit_tag(l(:button_create)) %>
+<% end%>
+<% end %>
